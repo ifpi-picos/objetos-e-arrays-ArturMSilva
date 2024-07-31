@@ -1,3 +1,10 @@
+import { adicionarItem } from "../functions/adicionarItem";
+import { excluirItem } from "../functions/excluirItem";
+import { exibirLista } from "../functions/exibirLista";
+import { pesquisarItem } from "../functions/pesquisarItem";
+import { ordenarLista } from "../functions/ordenarLista";
+import { limparLista } from "../functions/limparLista";
+
 const menu = `
 Lista de Compras
 
@@ -8,53 +15,8 @@ Lista de Compras
   5 - Ordenar a lista
   6 - Limpar Lista
   0 - Sair
-
 `
-let ListaDeCompras = ["bala", "abacate"]
-
-const adicionarItem = () => {
-    let item = prompt("Digite o item que quer adicionar:")
-    ListaDeCompras.push(item)
-}
-
-const excluirItem = () => {
-    exibirLista()
-    if (ListaDeCompras.length > 0){
-        let item = Number(prompt("Digite o nome do item que deseja excluir:"))
-        ListaDeCompras.splice(item, 1)
-    }
-   
-}
-
-const exibirLista = () => {
-    if (ListaDeCompras.length > 0){
-        ListaDeCompras.forEach((compra, index) => console.log(`${index} - ${compra}`))
-    } else {
-        console.log("A lista está vazia.");
-    }
-}
-
-const pesquisarItem = () => {
-    let item = prompt("Digite o nome do item que deseja encontrar:")
-    if (ListaDeCompras.includes(item)){
-        let itemProcurado = ListaDeCompras.find((itemEncontrado) => itemEncontrado === item)
-        console.log(`${itemProcurado} está na sua lista de compras.`);
-    } else {
-        console.log("Seu item não está na lista.");
-    }
-}
-
-const ordenarLista = () => {
-    ListaDeCompras.sort((a, b) => a.localeCompare(b))
-    exibirLista()
-}
-
-const limparLista = () => {
-    ListaDeCompras = []
-    console.log("Limpeza concluída!")
-    console.log(ListaDeCompras.length);
-}
-
+let ListaDeCompras = []
 
 let i = true
 while(i) {
@@ -62,22 +24,22 @@ while(i) {
     let escolha = Number(prompt("Escolha uma opção:"))
     switch(escolha){
         case 1:
-            adicionarItem()
+            adicionarItem(ListaDeCompras)
             break;
         case 2:
-            excluirItem()
+            excluirItem(ListaDeCompras)
             break;
         case 3:
-            exibirLista()
+            exibirLista(ListaDeCompras)
             break;
         case 4:
-            pesquisarItem()
+            pesquisarItem(ListaDeCompras)
             break;    
         case 5:
-            ordenarLista()
+            ordenarLista(ListaDeCompras)
             break;
         case 6:
-            limparLista()
+            ListaDeCompras = limparLista(ListaDeCompras)
             break;
         case 0:
             console.log("Tchau")
