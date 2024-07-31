@@ -42,7 +42,7 @@ while(i) {
             ListaDeCompras = limparLista(ListaDeCompras)
             break;
         case 0:
-            console.log("Tchau")
+            console.log("Obrigado pela preferência! Até logo!")
             i = false
             break;
         default:
