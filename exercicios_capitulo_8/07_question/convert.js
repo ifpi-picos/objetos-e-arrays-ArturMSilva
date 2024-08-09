@@ -1,6 +1,3 @@
-// Escreva um programa em JavaScript que utilize a biblioteca 
-// convert para converter dias em minutos e gigabytes em bytes.
-
 import {convert} from 'convert'
 
 console.log("CONVERTENDO DIAS EM MINUTOS");
